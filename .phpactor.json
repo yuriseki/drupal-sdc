@@ -1,0 +1,14 @@
+{
+    "$schema": "/phpactor.schema.json",
+    "symfony.enabled": true,
+    "indexer.supported_extensions": [
+        "php",
+        "inc",
+        "module"
+    ],
+    "indexer.include_patterns": [
+        "/**/*.php",
+        "/**/*.inc",
+        "/**/*.module"
+    ]
+}
