@@ -1,0 +1,66 @@
+name: drupal-11
+recipe: drupal11
+config:
+  framework: drupal11
+  php: '8.3'
+  webroot: web
+  edge: true
+  cache: true
+  composer_version: '2'
+  xdebug: true
+  via: nginx # Use Nginx instead of Apache
+  database: mariadb # Use Mariadb instead of MySQL
+
+services:
+  appserver:
+    type: php:8.3
+    # build:
+    #   - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    xdebug: "debug,develop,trace"
+    overrides:
+      environment:
+        XDEBUG_CONFIG: "discover_client_host=1"
+        XDEBUG_CLIENT_PORT: 9003
+        XDEBUG_MODE: debug
+        XDEBUG_CLIENT_HOST: 172.17.0.1
+        PHP_IDE_CONFIG: "serverName=drupal-11.lndo.site"
+  mailpit:
+    type: mailpit
+    mailFrom:
+      - appserver
+    portforward: true
+  node:
+    type: node
+  solr_index:
+    type: solr:8
+    core: drupal-11
+    portforward: true
+    config:
+      dir: solr-conf/8.x
+
+tooling:
+  get-composer:
+    cmd: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+  npm:
+    service: node
+  node:
+    service: node
+  gulp:
+    service: node
+  drush:
+    service: appserver
+    xdebug: "debug,develop,trace"
+    env:
+      DRUSH_OPTIONS_URI: "https://drupal-11.lndo.site"
+      PHP_IDE_CONFIG: "serverName=drupal-11.lndo.site"
+    cmd: php /app/vendor/bin/drush.php
+  xdebug-on:
+    service: appserver
+    description: Enable xdebug for nginx.
+    cmd: docker-php-ext-enable xdebug && pkill -o -USR2 php-fpm
+    user: root
+  xdebug-off:
+    service: appserver
+    description: Disable xdebug for nginx.
+    cmd: rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && pkill -o -USR2 php-fpm
+    user: root
