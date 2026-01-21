@@ -21,10 +21,13 @@
         "drupal/core-recipe-unpack": "^11",
         "drupal/core-recommended": "^11",
         "drush/drush": "^13.7",
-        "fenetikm/autoload-drupal": "^1.0"
+        "fenetikm/autoload-drupal": "^1.0",
+        "mglaman/phpstan-drupal": "^2.0"
     },
     "require-dev": {
-        "drupal/core-dev": "^11"
+        "drupal/coder": "^8.3",
+        "drupal/core-dev": "^11",
+        "squizlabs/php_codesniffer": "^3.13"
     },
     "conflict": {
         "drupal/drupal": "*"

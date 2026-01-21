@@ -1,14 +1,31 @@
 {
-    "$schema": "/phpactor.schema.json",
-    "symfony.enabled": true,
-    "indexer.supported_extensions": [
-        "php",
-        "inc",
-        "module"
-    ],
-    "indexer.include_patterns": [
-        "/**/*.php",
-        "/**/*.inc",
-        "/**/*.module"
-    ]
+  "$schema": "phpactor.schema.json",
+  "symfony.enabled": true,
+  "indexer.supported_extensions": [
+    "php",
+    "inc",
+    "module"
+  ],
+  "indexer.include_patterns": [
+    "/**/*.php",
+    "/**/*.inc",
+    "/**/*.module",
+    "web/core/includes/*.inc",
+    "web/core/modules/**/*.inc"
+  ],
+  "indexer.exclude_patterns": [
+    "/vendor/**/Tests/**/*",
+    "/vendor/**/tests/**/*",
+    "/vendor/composer/**/*",
+    "/vendor/rector/rector/stubs-rector",
+    ".git/**/*"
+  ],
+  "indexer.stub_paths": [
+    "~/.composer/vendor/jetbrains/phpstorm-stubs",
+    "%project_root%/vendor/mglaman/phpstan-drupal/stubs"
+  ],
+  "language_server_phpstan.enabled": true,
+  "php_code_sniffer.enabled": true,
+  "php_code_sniffer.show_diagnostics": true,
+  "prophecy.enabled": true
 }

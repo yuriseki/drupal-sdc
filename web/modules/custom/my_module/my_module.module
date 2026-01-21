@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for My Module module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Tests different methods of accessing the entity type manager.
+ *
+ * This function tests that various ways of obtaining the entity type manager
+ * service and its storage return equivalent objects.
+ *
+ * @param string $my_param
+ *   A parameter that is checked if it's a ViewExecutable (type mismatch noted).
+ */
+function my_module_test(string $my_param): void {
+  if ($my_param instanceof ViewExecutable) {
+    echo ('It is a view, not a string.');
+    echo (t('this is a test'));
+  }
+
+  echo ("Hello $my_param");
+  /** @var \Drupal\Core\Entity\EntityTypeManager $entity_type_manager **/
+  $entity_type_manager = \Drupal::service("entity_type.manager");
+  $a = \Drupal::entityTypeManager();
+  $e = $a->getStorage("node");
+  $b = \Drupal::entityTypeManager()->getStorage('node');
+  $c = $entity_type_manager->getStorage("node");
+  $d = \Drupal::getContainer()->get("enti");
+
+  if ($c == $b && $c == $d && $a == $e) {
+    return;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function my_module_form_myform_alter(&$form, FormStateInterface $form_state, $form_id): void {
+  $form['#actions'] = [
+    'submit' => [
+      '#type' => 'submit',
+      '#value' => t('Save'),
+    ],
+    'reset' => [
+      '#type' => 'reset',
+      '#value' => t('Reset'),
+    ],
+  ];
+}
+
