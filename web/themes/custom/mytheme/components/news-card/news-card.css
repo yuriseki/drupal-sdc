@@ -1,0 +1,155 @@
+/**
+ * News Card Component Styles
+ * BEM Methodology
+ */
+
+/* Block */
+.news-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  gap: 24px;
+}
+
+/* Media Elements */
+.news-card__media {
+  position: relative;
+  width: 100%;
+  height: 225px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.news-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content Container */
+.news-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Heading Section */
+.news-card__heading {
+  display: flex;
+  align-items: center;
+}
+
+.news-card__title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid;
+  max-width: 275px;
+}
+
+.news-card__title-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.news-card__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.news-card__link:hover,
+.news-card__link:focus {
+  opacity: 0.7;
+}
+
+.news-card__icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Paragraph Section */
+.news-card__paragraph {
+  width: 100%;
+}
+
+.news-card__text {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+/* Responsive Design - Mobile First */
+@media (max-width: 768px) {
+  .news-card {
+    max-width: 100%;
+  }
+
+  .news-card__media {
+    height: 180px;
+  }
+
+  .news-card__title {
+    font-size: 17px;
+  }
+
+  .news-card__text {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-card {
+    gap: 20px;
+  }
+
+  .news-card__content {
+    gap: 12px;
+  }
+
+  .news-card__media {
+    height: 160px;
+  }
+
+  .news-card__title {
+    font-size: 16px;
+  }
+
+  .news-card__text {
+    font-size: 14px;
+  }
+}
+
+/* Accessibility */
+.news-card__link:focus {
+  outline: 2px solid #008A11;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .news-card__link {
+    display: none;
+  }
+}

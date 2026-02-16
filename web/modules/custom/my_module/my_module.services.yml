@@ -1,0 +1,8 @@
+services:
+  my_module.example:
+    class: Drupal\my_module\Example
+    arguments:
+    - '@entity_type.manager'
+    - '@user.permissions'
+    - '@entity_display.repository'
+    - '@database'

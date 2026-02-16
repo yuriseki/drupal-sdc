@@ -1,0 +1,30 @@
+# Claude Code - Git Ignore Recommendations
+
+# If your claude.json contains sensitive data like API keys,
+# you should add it to your .gitignore:
+
+# .claude/claude.json
+
+# Alternative: Keep claude.json in git but use environment variables
+# for sensitive data, then this file can be committed safely.
+
+# You may want to ignore personal preferences or local customizations:
+# .claude/local-overrides.json
+
+# Keep these files in version control (recommended):
+# .claude/README.md
+# .claude/QUICK_REFERENCE.md
+# .claude/instructions/
+# .claude/workflows/
+
+# Note: The current configuration has the Figma API key in claude.json.
+# Consider moving to environment variable:
+#
+# Before:
+#   "--figma-api-key=figd_..."
+#
+# After:
+#   "--figma-api-key=${FIGMA_API_KEY}"
+#
+# Then set in your environment:
+#   export FIGMA_API_KEY="figd_..."

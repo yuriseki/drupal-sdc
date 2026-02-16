@@ -1,0 +1,49 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Landing Hero + Breadcrumbs
+status: stable
+description: Hero section with breadcrumbs, heading, intro text, button and background image
+group: Components
+
+props:
+  type: object
+  properties:
+    breadcrumbs:
+      type: array
+      title: Breadcrumb Items
+      description: Array of breadcrumb navigation items
+      default:
+        - title: Home
+          url: /
+        - title: Travel Info
+          url: /travel-info
+    heading:
+      type: string
+      title: Heading
+      description: Main hero heading (H1)
+      default: Public Transit in the Bay Area
+    intro_text:
+      type: string
+      title: Intro Text
+      description: Introduction paragraph below heading
+      maxLength: 1000
+      default: Public transit can be a great alternative to driving. Explore all the different transit agencies, find your Stop ID, learn about All Nighter service, Clipper, accessible transit, and and the RTC Discount ID Card.
+    button_text:
+      type: string
+      title: Button Text
+      description: Call-to-action button text
+      default: Go to Homepage
+    button_url:
+      type: string
+      title: Button URL
+      description: URL for the call-to-action button
+      default: /
+    background_image:
+      type: string
+      title: Background Image
+      description: URL to hero background image
+      default: /themes/custom/mytheme/assets/images/landing-hero/hero-background.png
+
+slots:
+  button:
+    title: Button
+    description: Optional custom button markup

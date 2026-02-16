@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1899112ad01a599216303fabdac68ec8",
+    "content-hash": "c1830ae39a44bc1bcb6836f9c556282a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1508,6 +1508,96 @@
             "time": "2024-02-05T11:56:58+00:00"
         },
         {
+            "name": "drupal/admin_toolbar",
+            "version": "3.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/admin_toolbar.git",
+                "reference": "3.6.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-3.6.3.zip",
+                "reference": "3.6.3",
+                "shasum": "9dfd1088a96464237998c3606b63c2d71644a1bf"
+            },
+            "require": {
+                "drupal/core": "^9.5 || ^10 || ^11"
+            },
+            "conflict": {
+                "drupal/project_browser": "<2.1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.6.3",
+                    "datestamp": "1767318997",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Wilfrid Roze (eme)",
+                    "homepage": "https://www.drupal.org/u/eme",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Romain Jarraud (romainj)",
+                    "homepage": "https://www.drupal.org/u/romainj",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Adrian Cid Almaguer (adriancid)",
+                    "homepage": "https://www.drupal.org/u/adriancid",
+                    "email": "adriancid@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Mohamed Anis Taktak (matio89)",
+                    "homepage": "https://www.drupal.org/u/matio89",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "David Suissa (DYdave)",
+                    "homepage": "https://www.drupal.org/u/dydave",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "japerry",
+                    "homepage": "https://www.drupal.org/user/45640"
+                },
+                {
+                    "name": "matio89",
+                    "homepage": "https://www.drupal.org/user/2320090"
+                },
+                {
+                    "name": "musa.thomas",
+                    "homepage": "https://www.drupal.org/user/1213824"
+                },
+                {
+                    "name": "romainj",
+                    "homepage": "https://www.drupal.org/user/370706"
+                }
+            ],
+            "description": "Provides a drop-down menu interface to the core Drupal Toolbar.",
+            "homepage": "http://drupal.org/project/admin_toolbar",
+            "keywords": [
+                "Drupal",
+                "Toolbar"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/admin_toolbar",
+                "issues": "https://www.drupal.org/project/issues/admin_toolbar"
+            }
+        },
+        {
             "name": "drupal/core",
             "version": "11.x-dev",
             "source": {
@@ -1881,6 +1971,86 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core."
+        },
+        {
+            "name": "drupal/ui_patterns",
+            "version": "2.0.14",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/ui_patterns.git",
+                "reference": "2.0.14"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ui_patterns-2.0.14.zip",
+                "reference": "2.0.14",
+                "shasum": "d3c9bb3b80d9b846acb1b6f90d2915b6e4b32f61"
+            },
+            "require": {
+                "drupal/core": "^10.3.4 || ^11",
+                "justinrainbow/json-schema": "^5.2 || ^6.3"
+            },
+            "require-dev": {
+                "drupal/ui_patterns_library": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.14",
+                    "datestamp": "1768901718",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "ademarco",
+                    "homepage": "https://www.drupal.org/user/186696"
+                },
+                {
+                    "name": "bircher",
+                    "homepage": "https://www.drupal.org/user/1344166"
+                },
+                {
+                    "name": "christian.wiedemann",
+                    "homepage": "https://www.drupal.org/user/861002"
+                },
+                {
+                    "name": "duaelfr",
+                    "homepage": "https://www.drupal.org/user/931394"
+                },
+                {
+                    "name": "g4mbini",
+                    "homepage": "https://www.drupal.org/user/2533498"
+                },
+                {
+                    "name": "grimreaper",
+                    "homepage": "https://www.drupal.org/user/2388214"
+                },
+                {
+                    "name": "just_like_good_vibes",
+                    "homepage": "https://www.drupal.org/user/792018"
+                },
+                {
+                    "name": "pdureau",
+                    "homepage": "https://www.drupal.org/user/1903334"
+                },
+                {
+                    "name": "pescetti",
+                    "homepage": "https://www.drupal.org/user/436244"
+                }
+            ],
+            "description": "Define and expose self-contained UI components and use them seamlessly in development and site-building.",
+            "homepage": "https://www.drupal.org/project/ui_patterns",
+            "support": {
+                "source": "https://git.drupalcode.org/project/ui_patterns"
+            }
         },
         {
             "name": "drush/drush",
@@ -12105,10 +12275,10 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
 }

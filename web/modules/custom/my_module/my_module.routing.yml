@@ -1,0 +1,16 @@
+my_module.form_example:
+  path: '/my-module/example'
+  defaults:
+    _title: 'Example'
+    _form: 'Drupal\my_module\Form\ExampleForm'
+  requirements:
+    _permission: 'access content'
+
+my_module.controller_example:
+  path: '/my-module/example'
+  defaults:
+    _title: 'Example'
+    _controller: 'Drupal\my_module\Controller\MyModuleController'
+  requirements:
+    _permission: 'access content'
+

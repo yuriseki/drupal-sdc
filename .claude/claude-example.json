@@ -1,0 +1,29 @@
+{
+  "$schema": "https://claude.ai/schemas/claude-config.json",
+  "mcpServers": {
+    "figma-local": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "figma-developer-mcp",
+        "--figma-api-key=YOUR_FIGMA_API_KEY",
+        "--stdio"
+      ]
+    }
+  },
+  "customInstructions": {
+    "enabled": true,
+    "path": ".claude/instructions/project-context.md"
+  },
+  "allowedTools": [
+    "Bash(npm run *)",
+    "Bash(phpcs *)",
+    "Bash(git *)",
+    "Read",
+    "Write",
+    "Edit",
+    "Glob",
+    "Grep",
+    "Task"
+  ]
+}

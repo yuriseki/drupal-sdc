@@ -1,0 +1,51 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/11.x/core/modules/sdc/src/metadata.schema.json
+name: News Card
+status: stable
+description: A card component displaying news articles with an image, heading with external link icon, and descriptive text.
+props:
+  type: object
+  required:
+    - heading
+    - paragraph
+    - image_url
+  properties:
+    heading:
+      type: string
+      title: Heading
+      description: Main heading text with green underline
+      default: All Aboard Bay Area Transit
+    paragraph:
+      type: string
+      title: Paragraph
+      description: Descriptive paragraph text
+      default: 27 agencies. 1 mission connecting you to the Bay Area you love. Wherever you're headed, get there on Bay Area transit.
+    image_url:
+      type: string
+      title: Image URL
+      description: URL or path to the card image
+      default: /themes/custom/mytheme/assets/images/news-card/train.png
+    image_alt:
+      type: string
+      title: Image Alt Text
+      description: Alternative text for the image
+      default: Bay Area transit train
+    link_url:
+      type: string
+      title: Link URL
+      description: Optional external link URL
+      default: '#'
+    heading_color:
+      type: string
+      title: Heading Color
+      description: Heading text color
+      default: '#383838'
+    paragraph_color:
+      type: string
+      title: Paragraph Color
+      description: Paragraph text color
+      default: '#383838'
+    underline_color:
+      type: string
+      title: Underline Color
+      description: Heading underline color
+      default: '#008A11'

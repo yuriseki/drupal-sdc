@@ -1,0 +1,44 @@
+{% set classes = ['landing-hero'] %}
+
+<div{{ attributes.addClass(classes) }}>
+  <div class="landing-hero__container">
+    <div class="landing-hero__content">
+      {% if breadcrumbs %}
+        <nav class="landing-hero__breadcrumbs" aria-label="Breadcrumb">
+          <ol class="landing-hero__breadcrumb-list">
+            {% for item in breadcrumbs %}
+              <li class="landing-hero__breadcrumb-item">
+                {% if item.url %}
+                  <a href="{{ item.url }}" class="landing-hero__breadcrumb-link">{{ item.title }}</a>
+                {% else %}
+                  <span>{{ item.title }}</span>
+                {% endif %}
+                {% if not loop.last %}
+                  <span class="landing-hero__breadcrumb-separator" aria-hidden="true">/</span>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ol>
+        </nav>
+      {% endif %}
+
+      <h1 class="landing-hero__heading">{{ heading }}</h1>
+
+      {% if intro_text %}
+        <p class="landing-hero__intro">{{ intro_text }}</p>
+      {% endif %}
+
+      {% if button %}
+        {{ button }}
+      {% elseif button_text and button_url %}
+        <a href="{{ button_url }}" class="landing-hero__button">{{ button_text }}</a>
+      {% endif %}
+    </div>
+
+    {% if background_image %}
+      <div class="landing-hero__image">
+        <img src="{{ background_image }}" alt="" loading="eager" />
+      </div>
+    {% endif %}
+  </div>
+</div>

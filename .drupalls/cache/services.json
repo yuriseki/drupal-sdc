@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "timestamp": "2026-01-21T18:58:51.331883",
+  "timestamp": "2026-01-26T17:58:09.290293",
   "services": {
     "_defaults": {
       "id": "_defaults",
@@ -9,7 +9,7 @@
       "class_file_path": "None",
       "arguments": [],
       "tags": [],
-      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/core/modules/mailer/tests/modules/mailer_transport_factory_kernel_test/mailer_transport_factory_kernel_test.services.yml",
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_ui/ui_patterns_ui.services.yml",
       "line_number": 2
     },
     "datetime.time": {
@@ -14945,6 +14945,509 @@
       ],
       "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/core/assets/scaffold/files/development.services.yml",
       "line_number": 23
+    },
+    "logger.channel.ui_patterns": {
+      "id": "logger.channel.ui_patterns",
+      "class_name": "",
+      "description": "",
+      "class_file_path": "None",
+      "arguments": [
+        "ui_patterns"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 2
+    },
+    "Drupal\\ui_patterns\\ComponentPluginManager": {
+      "id": "Drupal\\ui_patterns\\ComponentPluginManager",
+      "class_name": "",
+      "description": "",
+      "class_file_path": "None",
+      "arguments": [],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 9
+    },
+    "plugin.manager.ui_patterns_prop_type": {
+      "id": "plugin.manager.ui_patterns_prop_type",
+      "class_name": "Drupal\\ui_patterns\\PropTypePluginManager",
+      "description": "Drupal\\ui_patterns\\PropTypePluginManager",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/PropTypePluginManager.php",
+      "arguments": [
+        "@ui_patterns.schema_compatibility_checker",
+        "@typed_data_manager"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 19
+    },
+    "plugin.manager.ui_patterns_prop_type_adapter": {
+      "id": "plugin.manager.ui_patterns_prop_type_adapter",
+      "class_name": "Drupal\\ui_patterns\\PropTypeAdapterPluginManager",
+      "description": "Drupal\\ui_patterns\\PropTypeAdapterPluginManager",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/PropTypeAdapterPluginManager.php",
+      "arguments": [
+        "@ui_patterns.schema_compatibility_checker"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 25
+    },
+    "plugin.manager.ui_patterns_source": {
+      "id": "plugin.manager.ui_patterns_source",
+      "class_name": "Drupal\\ui_patterns\\SourcePluginManager",
+      "description": "Drupal\\ui_patterns\\SourcePluginManager",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/SourcePluginManager.php",
+      "arguments": [
+        "@plugin.manager.ui_patterns_prop_type",
+        "@context.handler",
+        "@entity_type.manager"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 30
+    },
+    "plugin.manager.ui_patterns_derivable_context": {
+      "id": "plugin.manager.ui_patterns_derivable_context",
+      "class_name": "Drupal\\ui_patterns\\DerivableContextPluginManager",
+      "description": "Drupal\\ui_patterns\\DerivableContextPluginManager",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/DerivableContextPluginManager.php",
+      "arguments": [
+        "@entity_type.manager"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 37
+    },
+    "ui_patterns.component_element_builder": {
+      "id": "ui_patterns.component_element_builder",
+      "class_name": "Drupal\\ui_patterns\\Element\\ComponentElementBuilder",
+      "description": "Drupal\\ui_patterns\\Element\\ComponentElementBuilder",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/Element/ComponentElementBuilder.php",
+      "arguments": [
+        "@plugin.manager.ui_patterns_source",
+        "@plugin.manager.sdc",
+        "@module_handler",
+        "@logger.channel.ui_patterns"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 43
+    },
+    "ui_patterns.component_element_alter": {
+      "id": "ui_patterns.component_element_alter",
+      "class_name": "Drupal\\ui_patterns\\Element\\ComponentElementAlter",
+      "description": "Drupal\\ui_patterns\\Element\\ComponentElementAlter",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/Element/ComponentElementAlter.php",
+      "arguments": [
+        "@plugin.manager.sdc",
+        "@plugin.manager.ui_patterns_prop_type_adapter"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 50
+    },
+    "ui_patterns.schema_stream_wrapper": {
+      "id": "ui_patterns.schema_stream_wrapper",
+      "class_name": "Drupal\\ui_patterns\\SchemaManager\\StreamWrapper",
+      "description": "Drupal\\ui_patterns\\SchemaManager\\StreamWrapper",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/SchemaManager/StreamWrapper.php",
+      "arguments": [
+        "@plugin.manager.ui_patterns_prop_type"
+      ],
+      "tags": [
+        {
+          "name": "stream_wrapper",
+          "scheme": "ui-patterns"
+        }
+      ],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 57
+    },
+    "ui_patterns.schema_compatibility_checker": {
+      "id": "ui_patterns.schema_compatibility_checker",
+      "class_name": "Drupal\\ui_patterns\\SchemaManager\\CompatibilityChecker",
+      "description": "Drupal\\ui_patterns\\SchemaManager\\CompatibilityChecker",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/SchemaManager/CompatibilityChecker.php",
+      "arguments": [
+        "@ui_patterns.schema_canonicalizer"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 63
+    },
+    "ui_patterns.schema_canonicalizer": {
+      "id": "ui_patterns.schema_canonicalizer",
+      "class_name": "Drupal\\ui_patterns\\SchemaManager\\Canonicalizer",
+      "description": "Drupal\\ui_patterns\\SchemaManager\\Canonicalizer",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/SchemaManager/Canonicalizer.php",
+      "arguments": [],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 67
+    },
+    "ui_patterns.schema_reference_solver": {
+      "id": "ui_patterns.schema_reference_solver",
+      "class_name": "Drupal\\ui_patterns\\SchemaManager\\ReferencesResolver",
+      "description": "Drupal\\ui_patterns\\SchemaManager\\ReferencesResolver",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/SchemaManager/ReferencesResolver.php",
+      "arguments": [
+        "@logger.channel.ui_patterns"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 69
+    },
+    "ui_patterns.twig.extension": {
+      "id": "ui_patterns.twig.extension",
+      "class_name": "Drupal\\ui_patterns\\Template\\TwigExtension",
+      "description": "Drupal\\ui_patterns\\Template\\TwigExtension",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/Template/TwigExtension.php",
+      "arguments": [
+        "@plugin.manager.sdc",
+        "@plugin.manager.ui_patterns_prop_type_adapter",
+        "@messenger"
+      ],
+      "tags": [
+        {
+          "name": "twig.extension"
+        }
+      ],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 75
+    },
+    "ui_patterns.sample_entity_generator": {
+      "id": "ui_patterns.sample_entity_generator",
+      "class_name": "Drupal\\ui_patterns\\Entity\\SampleEntityGenerator",
+      "description": "Drupal\\ui_patterns\\Entity\\SampleEntityGenerator",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/Entity/SampleEntityGenerator.php",
+      "arguments": [
+        "@tempstore.shared",
+        "@entity_type.manager"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 84
+    },
+    "ui_patterns.entity_schema_subscriber": {
+      "id": "ui_patterns.entity_schema_subscriber",
+      "class_name": "Drupal\\ui_patterns\\EventSubscriber\\UiPatternsEntitySchemaSubscriber",
+      "description": "Drupal\\ui_patterns\\EventSubscriber\\UiPatternsEntitySchemaSubscriber",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/EventSubscriber/UiPatternsEntitySchemaSubscriber.php",
+      "arguments": [
+        "@plugin.manager.ui_patterns_source",
+        "@plugin.manager.ui_patterns_derivable_context"
+      ],
+      "tags": [
+        {
+          "name": "event_subscriber"
+        }
+      ],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 88
+    },
+    "ui_patterns.chain_context_entity_resolver": {
+      "id": "ui_patterns.chain_context_entity_resolver",
+      "class_name": "Drupal\\ui_patterns\\Resolver\\ChainContextEntityResolver",
+      "description": "Drupal\\ui_patterns\\Resolver\\ChainContextEntityResolver",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/Resolver/ChainContextEntityResolver.php",
+      "arguments": [],
+      "tags": [
+        {
+          "name": "service_collector",
+          "call": "addResolver",
+          "tag": "ui_patterns.context_entity_resolver"
+        }
+      ],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 94
+    },
+    "ui_patterns.normalizer": {
+      "id": "ui_patterns.normalizer",
+      "class_name": "Drupal\\ui_patterns\\UiPatternsNormalizer",
+      "description": "Drupal\\ui_patterns\\UiPatternsNormalizer",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/src/UiPatternsNormalizer.php",
+      "arguments": [
+        "@renderer"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/ui_patterns.services.yml",
+      "line_number": 99
+    },
+    "admin_toolbar_search.search_links": {
+      "id": "admin_toolbar_search.search_links",
+      "class_name": "Drupal\\admin_toolbar_search\\SearchLinks",
+      "description": "Drupal\\admin_toolbar_search\\SearchLinks",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/admin_toolbar/admin_toolbar_search/src/SearchLinks.php",
+      "arguments": [
+        "@entity_type.manager",
+        "@module_handler",
+        "@router.route_provider",
+        "@cache_contexts_manager",
+        "@cache.toolbar",
+        "@config.factory"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/admin_toolbar/admin_toolbar_search/admin_toolbar_search.services.yml",
+      "line_number": 6
+    },
+    "admin_toolbar_tools.helper": {
+      "id": "admin_toolbar_tools.helper",
+      "class_name": "Drupal\\admin_toolbar_tools\\AdminToolbarToolsHelper",
+      "description": "Drupal\\admin_toolbar_tools\\AdminToolbarToolsHelper",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/admin_toolbar/admin_toolbar_tools/src/AdminToolbarToolsHelper.php",
+      "arguments": [
+        "@entity_type.manager",
+        "@plugin.manager.menu.local_task",
+        "@current_route_match",
+        "@config.factory"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/admin_toolbar/admin_toolbar_tools/admin_toolbar_tools.services.yml",
+      "line_number": 2
+    },
+    "ui_patterns_test.test_context_entity_resolver": {
+      "id": "ui_patterns_test.test_context_entity_resolver",
+      "class_name": "Drupal\\ui_patterns_test\\Resolver\\TestContextEntityResolver",
+      "description": "Drupal\\ui_patterns_test\\Resolver\\TestContextEntityResolver",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/tests/modules/ui_patterns_test/src/Resolver/TestContextEntityResolver.php",
+      "arguments": [],
+      "tags": [
+        {
+          "name": "ui_patterns.context_entity_resolver"
+        }
+      ],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/tests/modules/ui_patterns_test/ui_patterns_test.services.yml",
+      "line_number": 2
+    },
+    "ui_patterns_legacy.twig.extension": {
+      "id": "ui_patterns_legacy.twig.extension",
+      "class_name": "Drupal\\ui_patterns_legacy\\Template\\TwigExtension",
+      "description": "Drupal\\ui_patterns_legacy\\Template\\TwigExtension",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/src/Template/TwigExtension.php",
+      "arguments": [],
+      "tags": [
+        {
+          "name": "twig.extension"
+        }
+      ],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/ui_patterns_legacy.services.yml",
+      "line_number": 2
+    },
+    "ui_patterns_legacy.discovery": {
+      "id": "ui_patterns_legacy.discovery",
+      "class_name": "Drupal\\ui_patterns_legacy\\ComponentDiscovery",
+      "description": "Drupal\\ui_patterns_legacy\\ComponentDiscovery",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/src/ComponentDiscovery.php",
+      "arguments": [
+        "@extension.path.resolver",
+        "@module_handler",
+        "@theme_handler",
+        "@file_system"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/ui_patterns_legacy.services.yml",
+      "line_number": 6
+    },
+    "ui_patterns_legacy.renderable_converter": {
+      "id": "ui_patterns_legacy.renderable_converter",
+      "class_name": "Drupal\\ui_patterns_legacy\\RenderableConverter",
+      "description": "Drupal\\ui_patterns_legacy\\RenderableConverter",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/src/RenderableConverter.php",
+      "arguments": [
+        "@plugin.manager.sdc"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/ui_patterns_legacy.services.yml",
+      "line_number": 13
+    },
+    "ui_patterns_legacy.component_converter": {
+      "id": "ui_patterns_legacy.component_converter",
+      "class_name": "Drupal\\ui_patterns_legacy\\ComponentConverter",
+      "description": "Drupal\\ui_patterns_legacy\\ComponentConverter",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/src/ComponentConverter.php",
+      "arguments": [
+        "@renderer"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/ui_patterns_legacy.services.yml",
+      "line_number": 17
+    },
+    "ui_patterns_legacy.component_writer": {
+      "id": "ui_patterns_legacy.component_writer",
+      "class_name": "Drupal\\ui_patterns_legacy\\ComponentWriter",
+      "description": "Drupal\\ui_patterns_legacy\\ComponentWriter",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/src/ComponentWriter.php",
+      "arguments": [],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/ui_patterns_legacy.services.yml",
+      "line_number": 21
+    },
+    "ui_patterns_legacy.configuration_converter": {
+      "id": "ui_patterns_legacy.configuration_converter",
+      "class_name": "Drupal\\ui_patterns_legacy\\ConfigurationConverter",
+      "description": "Drupal\\ui_patterns_legacy\\ConfigurationConverter",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/src/ConfigurationConverter.php",
+      "arguments": [
+        "@ui_patterns_legacy.renderable_converter",
+        "@plugin.manager.sdc",
+        "@module_handler",
+        "@theme_handler",
+        "@entity_field.manager"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/ui_patterns_legacy.services.yml",
+      "line_number": 23
+    },
+    "ui_patterns_legacy.story_extractor": {
+      "id": "ui_patterns_legacy.story_extractor",
+      "class_name": "Drupal\\ui_patterns_legacy\\StoryExtractor",
+      "description": "Drupal\\ui_patterns_legacy\\StoryExtractor",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/src/StoryExtractor.php",
+      "arguments": [
+        "@ui_patterns_legacy.renderable_converter"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/ui_patterns_legacy.services.yml",
+      "line_number": 31
+    },
+    "ui_patterns_legacy.component_element_alter": {
+      "id": "ui_patterns_legacy.component_element_alter",
+      "class_name": "Drupal\\ui_patterns_legacy\\Element\\ComponentElementAlter",
+      "description": "Drupal\\ui_patterns_legacy\\Element\\ComponentElementAlter",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/src/Element/ComponentElementAlter.php",
+      "arguments": [
+        "@theme.manager",
+        "@plugin.manager.sdc",
+        "@plugin.manager.component_story",
+        "@ui_patterns_library.stories_syntax_converter",
+        "@ui_patterns_legacy.renderable_converter"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/ui_patterns_legacy.services.yml",
+      "line_number": 35
+    },
+    "ui_patterns_legacy.configuration_updater": {
+      "id": "ui_patterns_legacy.configuration_updater",
+      "class_name": "Drupal\\ui_patterns_legacy\\Service\\ConfigurationUpdater",
+      "description": "Drupal\\ui_patterns_legacy\\Service\\ConfigurationUpdater",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/src/Service/ConfigurationUpdater.php",
+      "arguments": [
+        "@config.manager",
+        "@config.factory",
+        "@ui_patterns_legacy.configuration_converter",
+        "@messenger"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/ui_patterns_legacy.services.yml",
+      "line_number": 43
+    },
+    "ui_patterns_legacy.layout_builder_updater": {
+      "id": "ui_patterns_legacy.layout_builder_updater",
+      "class_name": "Drupal\\ui_patterns_legacy\\Service\\LayoutBuilderUpdater",
+      "description": "Drupal\\ui_patterns_legacy\\Service\\LayoutBuilderUpdater",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/src/Service/LayoutBuilderUpdater.php",
+      "arguments": [
+        "@plugin.manager.sdc"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_legacy/ui_patterns_legacy.services.yml",
+      "line_number": 50
+    },
+    "ui_patterns_library.component_element_alter": {
+      "id": "ui_patterns_library.component_element_alter",
+      "class_name": "Drupal\\ui_patterns_library\\Element\\ComponentElementAlter",
+      "description": "Drupal\\ui_patterns_library\\Element\\ComponentElementAlter",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_library/src/Element/ComponentElementAlter.php",
+      "arguments": [
+        "@plugin.manager.sdc",
+        "@plugin.manager.component_story",
+        "@ui_patterns_library.stories_syntax_converter"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_library/ui_patterns_library.services.yml",
+      "line_number": 2
+    },
+    "ui_patterns_library.stories_syntax_converter": {
+      "id": "ui_patterns_library.stories_syntax_converter",
+      "class_name": "Drupal\\ui_patterns_library\\StoriesSyntaxConverter",
+      "description": "Drupal\\ui_patterns_library\\StoriesSyntaxConverter",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_library/src/StoriesSyntaxConverter.php",
+      "arguments": [],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_library/ui_patterns_library.services.yml",
+      "line_number": 8
+    },
+    "ui_patterns_library.twig.extension": {
+      "id": "ui_patterns_library.twig.extension",
+      "class_name": "Drupal\\ui_patterns_library\\Template\\TwigExtension",
+      "description": "Drupal\\ui_patterns_library\\Template\\TwigExtension",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_library/src/Template/TwigExtension.php",
+      "arguments": [
+        "@plugin.manager.component_story"
+      ],
+      "tags": [
+        {
+          "name": "twig.extension"
+        }
+      ],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_library/ui_patterns_library.services.yml",
+      "line_number": 10
+    },
+    "plugin.manager.component_story": {
+      "id": "plugin.manager.component_story",
+      "class_name": "Drupal\\ui_patterns_library\\StoryPluginManager",
+      "description": "Drupal\\ui_patterns_library\\StoryPluginManager",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_library/src/StoryPluginManager.php",
+      "arguments": [
+        "@module_handler",
+        "@theme_handler",
+        "@cache.discovery",
+        "@file_system",
+        "@messenger",
+        "@plugin.manager.sdc"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_library/ui_patterns_library.services.yml",
+      "line_number": 16
+    },
+    "ui_patterns_ui.component_display_form": {
+      "id": "ui_patterns_ui.component_display_form",
+      "class_name": "Drupal\\ui_patterns_ui\\Element\\ComponentDisplayForm",
+      "description": "Drupal\\ui_patterns_ui\\Element\\ComponentDisplayForm",
+      "class_file_path": "None",
+      "arguments": [],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_ui/ui_patterns_ui.services.yml",
+      "line_number": 5
+    },
+    "ui_patterns_ui.subscriber": {
+      "id": "ui_patterns_ui.subscriber",
+      "class_name": "Drupal\\ui_patterns_ui\\Routing\\RouteSubscriber",
+      "description": "Drupal\\ui_patterns_ui\\Routing\\RouteSubscriber",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_ui/src/Routing/RouteSubscriber.php",
+      "arguments": [
+        "@entity_type.manager",
+        "@plugin.manager.sdc"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/contrib/ui_patterns/modules/ui_patterns_ui/ui_patterns_ui.services.yml",
+      "line_number": 8
+    },
+    "my_module.example": {
+      "id": "my_module.example",
+      "class_name": "Drupal\\my_module\\Example",
+      "description": "Drupal\\my_module\\Example",
+      "class_file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/custom/my_module/src/Example.php",
+      "arguments": [
+        "@entity_type.manager",
+        "@user.permissions",
+        "@entity_display.repository",
+        "@database"
+      ],
+      "tags": [],
+      "file_path": "/home/yuri/ssd2/project-files/Kalamuna/projects/drupal-11/web/modules/custom/my_module/my_module.services.yml",
+      "line_number": 2
     }
   }
 }

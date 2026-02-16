@@ -1,0 +1,184 @@
+/* Landing Hero Component - Exact values from Figma */
+
+/* Container background - Green/Lighter from Figma */
+.landing-hero {
+  background-color: #f0fced; /* Green/Lighter from Figma */
+  overflow: hidden;
+}
+
+/* Main grid container - Figma: 1440px, HORIZONTAL, gap 80px, align CENTER */
+.landing-hero__container {
+  display: grid;
+  grid-template-columns: 772px 590px;
+  gap: 80px;
+  align-items: center;
+  justify-content: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 44px 20px;
+}
+
+/* Content area - Figma: 772px, VERTICAL, gap 16px, padding-left 72px */
+.landing-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 72px;
+}
+
+/* Breadcrumbs - Figma: Inter 14px weight 500, #383838 */
+.landing-hero__breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #383838; /* Greyscale/Dark- Font from Figma */
+  max-width: 700px;
+}
+
+.landing-hero__breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.landing-hero__breadcrumb-link {
+  color: #383838;
+  text-decoration: none;
+  border-bottom: 1px solid #008a11; /* Green/Dark- Main color from Figma */
+  transition: color 200ms;
+}
+
+.landing-hero__breadcrumb-link:hover {
+  color: #008a11;
+}
+
+.landing-hero__breadcrumb-link:focus {
+  outline: 2px solid #008a11;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.landing-hero__breadcrumb-separator {
+  color: #666;
+}
+
+/* Heading - Figma: Inter 48px weight 800, #383838 */
+.landing-hero__heading {
+  font-family: Inter, sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #383838; /* Greyscale/Dark- Font from Figma */
+  margin: 0;
+  max-width: 700px;
+}
+
+/* Intro - Figma: Inter 22px weight 500, #383838 */
+.landing-hero__intro {
+  font-family: Inter, sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #383838; /* Greyscale/Dark- Font from Figma */
+  margin: 0;
+  max-width: 700px;
+}
+
+/* Button - Figma: Inter 16px weight 700, padding 14px/20px, bg #008a11 */
+.landing-hero__button {
+  display: inline-block;
+  padding: 14px 20px;
+  background-color: #008a11; /* Green/Dark- Main color from Figma */
+  color: #ffffff; /* Black & White/White from Figma */
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 200ms;
+  align-self: flex-start;
+}
+
+.landing-hero__button:hover {
+  background-color: #006d0e;
+}
+
+.landing-hero__button:focus {
+  outline: 2px solid #008a11;
+  outline-offset: 2px;
+}
+
+/* Image - Figma: 590px wide */
+.landing-hero__image {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+}
+
+.landing-hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Responsive - below desktop width (1440px + padding) */
+@media (max-width: 1480px) {
+  .landing-hero__container {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 32px 20px;
+  }
+
+  .landing-hero__content {
+    padding-left: 40px;
+  }
+}
+
+@media (max-width: 968px) {
+  .landing-hero__container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 20px;
+  }
+
+  .landing-hero__content {
+    padding-left: 0;
+  }
+
+  .landing-hero__heading {
+    font-size: 36px;
+  }
+
+  .landing-hero__intro {
+    font-size: 18px;
+  }
+
+  .landing-hero__image {
+    min-height: 250px;
+  }
+}
+
+@media print {
+  .landing-hero__container {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-hero__image {
+    max-height: 200px;
+  }
+
+  .landing-hero__button {
+    background: none;
+    color: #000;
+    border: 1px solid #000;
+  }
+}

@@ -1,0 +1,50 @@
+{%
+  set classes = [
+    'card-menu',
+    modifier_class ? 'card-menu--' ~ modifier_class|clean_class,
+    link_url ? 'card-menu--linked',
+  ]
+%}
+
+{% set card_content %}
+  <div{{ attributes.addClass(classes) }}>
+    <div class="card-menu__image">
+      {% if image %}
+        {{ image }}
+      {% elseif image_url %}
+        <img src="{{ image_url }}" alt="{{ image_alt }}" loading="lazy" />
+      {% else %}
+        <div class="card-menu__image-placeholder">
+          <svg class="card-menu__placeholder-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M0 0h24v24H0V0z" fill="none"/>
+            <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4.86 8.86l-3 3.87L9 13.14 6 17h12l-3.86-5.14z"/>
+          </svg>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="card-menu__content">
+      <div class="card-menu__heading">
+        {{ heading }}
+        {% if show_external_icon %}
+          <svg class="card-menu__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M0 0h24v24H0V0z" fill="none"/>
+            <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+          </svg>
+        {% endif %}
+      </div>
+
+      {% if supporting_text %}
+        <p class="card-menu__text">{{ supporting_text }}</p>
+      {% endif %}
+    </div>
+  </div>
+{% endset %}
+
+{% if link_url %}
+  <a href="{{ link_url }}" class="card-menu__link">
+    {{ card_content }}
+  </a>
+{% else %}
+  {{ card_content }}
+{% endif %}

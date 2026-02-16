@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * News Card component template.
+ *
+ * Available variables:
+ * - heading: Main heading text
+ * - paragraph: Descriptive paragraph text
+ * - image_url: URL or path to the card image
+ * - image_alt: Alternative text for the image
+ * - link_url: Optional external link URL
+ * - heading_color: Heading text color
+ * - paragraph_color: Paragraph text color
+ * - underline_color: Heading underline color
+ */
+#}
+<article class="news-card">
+  <div class="news-card__media">
+    <img src="{{ image_url }}" alt="{{ image_alt }}" class="news-card__image">
+  </div>
+
+  <div class="news-card__content">
+    <div class="news-card__heading">
+      <h3 class="news-card__title" style="color: {{ heading_color }}; border-bottom-color: {{ underline_color }};">
+        <span class="news-card__title-text">{{ heading }}</span>
+        {% if link_url %}
+          <a href="{{ link_url }}" class="news-card__link" aria-label="Open {{ heading }} in new window" target="_blank" rel="noopener noreferrer">
+            <svg class="news-card__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" fill="{{ heading_color }}"/>
+            </svg>
+          </a>
+        {% endif %}
+      </h3>
+    </div>
+
+    <div class="news-card__paragraph">
+      <p class="news-card__text" style="color: {{ paragraph_color }};">{{ paragraph }}</p>
+    </div>
+  </div>
+</article>
