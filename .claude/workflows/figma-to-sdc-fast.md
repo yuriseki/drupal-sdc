@@ -230,24 +230,42 @@ maxWidth, minWidth   # Width constraints
 1. Verbose descriptions (keep to 1 line)
 2. Examples section (use defaults instead)
 
-**Minimal prop definition with ACTUAL Figma content:**
+**MANDATORY: String length check for EVERY string prop**
+
+Drupal's `textfield` element defaults to `#maxlength: 128`. Any string default longer than 128 chars will throw a validation error. Before writing each string prop, count the default value's characters and add `maxLength` if needed:
+
+```python
+# Run this mental check for every string prop:
+len("your default text here") > 128  # → if True, add maxLength
+```
+
 ```yaml
+# Short text (≤128 chars) — no maxLength needed
 heading:
   type: string
   title: Heading
-  default: Public Transit in the Bay Area  # EXACT text from Figma
+  default: Public Transit in the Bay Area
 
-intro_text:
+# Long text (>128 chars) — maxLength REQUIRED
+description:
   type: string
-  title: Intro Text
-  maxLength: 1000  # CRITICAL: Add maxLength for text longer than 128 chars
-  default: [Full text from Figma...]  # EXACT text from Figma
+  title: Description
+  maxLength: 1000   # ← REQUIRED when default > 128 chars
+  default: MVgo is a service of the Mountain View Transportation Management Association (MTMA), a nonprofit membership organization...
+
+# Medium text (uncertain) — add maxLength to be safe
+summary:
+  type: string
+  title: Summary
+  maxLength: 500    # ← Safe default for any paragraph-length text
+  default: ...
 ```
 
-**CRITICAL: String length validation**
-- Default maxLength for strings is 128 characters
-- If default text > 128 chars, MUST add `maxLength` property
-- Use `maxLength: 1000` for paragraphs, `maxLength: 500` for medium text
+**Rules:**
+- `len(default) > 128` → MUST add `maxLength`
+- Paragraphs / body text → always use `maxLength: 1000`
+- Subtitles / summaries → use `maxLength: 500`
+- Titles / labels / URLs → no maxLength needed (always short)
 
 **CRITICAL: Use ACTUAL Figma content, not placeholders:**
 - ✅ `default: Public Transit in the Bay Area` (from Figma)
@@ -357,8 +375,11 @@ Total: ~10,000 tokens vs ~75,000 tokens
 2. ✅ **Read screenshot if provided** - Visual understanding before code
 3. ✅ **Use correct component name** - From top-level Figma node or design intent
 4. ✅ **Use ACTUAL Figma content as defaults** - Extract real text, colors, images from Figma data
-5. ✅ ALL props MUST have defaults (with actual Figma values)
-6. ✅ **Add maxLength for long text** - If default > 128 chars, add `maxLength: 1000`
+5. ✅ **ALL props MUST have defaults** (with actual Figma values)
+6. ✅ **COUNT characters in every string default** - If `len(default) > 128`, add `maxLength`. No exceptions.
+   - Paragraphs / body text → `maxLength: 1000`
+   - Summaries / subtitles → `maxLength: 500`
+   - Titles / labels / URLs → no maxLength needed
 7. ✅ **Extract colors from Figma styles** - Not just fills, fetch style nodes for accurate colors
 8. ✅ Validate YAML syntax
 9. ✅ Use BEM methodology

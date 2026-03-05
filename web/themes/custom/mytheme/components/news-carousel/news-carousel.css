@@ -1,0 +1,166 @@
+/**
+ * News Carousel Component Styles
+ * BEM Methodology
+ */
+
+/* Block */
+.news-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 1296px;
+}
+
+/* Header */
+.news-carousel__header {
+  width: 100%;
+}
+
+.news-carousel__heading {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 33px;
+  font-weight: 700;
+  color: #383838;
+  line-height: 1.2;
+}
+
+/* Track Wrapper */
+.news-carousel__track-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Track */
+.news-carousel__track {
+  display: flex;
+  gap: 48px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+/* Individual Card Slot */
+.news-carousel__item {
+  flex: 0 0 400px;
+}
+
+/* Controls Row */
+.news-carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+}
+
+/* Navigation Buttons */
+.news-carousel__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #008a11;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.news-carousel__btn:disabled {
+  color: #c9c9c9;
+  cursor: default;
+}
+
+.news-carousel__btn:not(:disabled):hover,
+.news-carousel__btn:not(:disabled):focus {
+  opacity: 0.75;
+  outline: 2px solid #008a11;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.news-carousel__btn-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Indicator Dots */
+.news-carousel__indicators {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.news-carousel__indicator {
+  width: 16px;
+  height: 16px;
+  padding: 4px;
+  border-radius: 50%;
+  border: none;
+  background-color: #c9c9c9;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.news-carousel__indicator--active {
+  background-color: #008a11;
+}
+
+.news-carousel__indicator:focus {
+  outline: 2px solid #008a11;
+  outline-offset: 2px;
+}
+
+.news-carousel__indicator:hover:not(.news-carousel__indicator--active) {
+  background-color: #a0a0a0;
+}
+
+/* Responsive: Tablet */
+@media (max-width: 1024px) {
+  .news-carousel__heading {
+    font-size: 28px;
+  }
+
+  .news-carousel__item {
+    flex: 0 0 calc(50% - 24px);
+  }
+
+  .news-carousel__track {
+    gap: 24px;
+  }
+
+  .news-carousel__controls {
+    gap: 32px;
+  }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 600px) {
+  .news-carousel {
+    gap: 24px;
+  }
+
+  .news-carousel__heading {
+    font-size: 24px;
+  }
+
+  .news-carousel__item {
+    flex: 0 0 100%;
+  }
+
+  .news-carousel__track {
+    gap: 16px;
+  }
+
+  .news-carousel__controls {
+    gap: 24px;
+  }
+}

@@ -1,0 +1,177 @@
+/* Transit Agency Card Component */
+
+.transit-agency-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #ffffff;
+  border: 1px solid #c9c9c9;
+  padding: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .transit-agency-card {
+    flex-direction: row;
+    gap: 24px;
+    align-items: flex-start;
+  }
+}
+
+/* Logo */
+.transit-agency-card__logo-wrapper {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 60px;
+  border: 1px solid #8bd085;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transit-agency-card__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content */
+.transit-agency-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Tags */
+.transit-agency-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.transit-agency-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #e8f4fc;
+  border-radius: 24px;
+  padding: 5px 10px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #383838;
+  line-height: 1;
+}
+
+.transit-agency-card__tag-icon {
+  flex-shrink: 0;
+  color: #383838;
+}
+
+/* Heading */
+.transit-agency-card__heading {
+  font-size: 23px;
+  font-weight: 700;
+  color: #383838;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Description */
+.transit-agency-card__description {
+  font-size: 16px;
+  font-weight: 400;
+  color: #383838;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Actions */
+.transit-agency-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 480px) {
+  .transit-agency-card__actions {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+.transit-agency-card__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Buttons */
+.transit-agency-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 9px 14px;
+  border-radius: 32px;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.transit-agency-card__btn:hover {
+  opacity: 0.85;
+}
+
+.transit-agency-card__btn--primary {
+  background-color: #008a11;
+  color: #ffffff;
+  border: 1px solid #008a11;
+}
+
+.transit-agency-card__btn--secondary {
+  background-color: #ffffff;
+  color: #008a11;
+  border: 1px solid #008a11;
+}
+
+.transit-agency-card__btn-icon {
+  flex-shrink: 0;
+  color: currentColor;
+}
+
+/* Related link */
+.transit-agency-card__related-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #383838;
+  text-decoration: none;
+}
+
+.transit-agency-card__related-link:hover {
+  text-decoration: underline;
+}
+
+.transit-agency-card__related-link-text {
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.transit-agency-card__related-link:hover .transit-agency-card__related-link-text {
+  border-bottom-color: #383838;
+}
+
+.transit-agency-card__related-link-icon {
+  flex-shrink: 0;
+  color: currentColor;
+}

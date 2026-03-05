@@ -1,0 +1,69 @@
+{#
+/**
+ * @file
+ * News Carousel component template.
+ *
+ * Available variables:
+ * - section_heading: The H2 heading above the carousel.
+ * - cards: Array of card objects, each with:
+ *   - heading: Card title text
+ *   - paragraph: Card body text
+ *   - image_url: Card image URL
+ *   - image_alt: Card image alt text
+ *   - link_url: Optional card link URL
+ */
+#}
+<section class="news-carousel" aria-label="{{ section_heading }}">
+  <div class="news-carousel__header">
+    <h2 class="news-carousel__heading">{{ section_heading }}</h2>
+  </div>
+
+  <div class="news-carousel__track-wrapper" aria-live="polite">
+    <ul class="news-carousel__track" id="news-carousel-track">
+      {% for card in cards %}
+        <li class="news-carousel__item" aria-hidden="{{ loop.first ? 'false' : 'true' }}">
+          {{ include('mytheme:news-card', {
+            heading: card.heading,
+            paragraph: card.paragraph,
+            image_url: card.image_url,
+            image_alt: card.image_alt,
+            link_url: card.link_url|default('#'),
+          }, with_context=false) }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="news-carousel__controls">
+    <button
+      class="news-carousel__btn news-carousel__btn--prev"
+      aria-label="Previous slide"
+      disabled
+    >
+      <svg class="news-carousel__btn-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polyline points="22,9 13,18 22,27" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </button>
+
+    <div class="news-carousel__indicators" role="tablist" aria-label="Carousel slides">
+      {% for card in cards %}
+        <button
+          class="news-carousel__indicator{% if loop.first %} news-carousel__indicator--active{% endif %}"
+          role="tab"
+          aria-selected="{{ loop.first ? 'true' : 'false' }}"
+          aria-label="Slide {{ loop.index }}"
+          data-slide="{{ loop.index0 }}"
+        ></button>
+      {% endfor %}
+    </div>
+
+    <button
+      class="news-carousel__btn news-carousel__btn--next"
+      aria-label="Next slide"
+    >
+      <svg class="news-carousel__btn-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polyline points="14,9 23,18 14,27" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </button>
+  </div>
+</section>

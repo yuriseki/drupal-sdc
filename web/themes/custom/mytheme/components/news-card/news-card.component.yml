@@ -18,7 +18,8 @@ props:
       type: string
       title: Paragraph
       description: Descriptive paragraph text
-      default: 27 agencies. 1 mission connecting you to the Bay Area you love. Wherever you're headed, get there on Bay Area transit.
+      maxLength: 1000
+      default: "27 agencies. 1 mission: connecting you to the Bay Area you love. Wherever you're headed, get there on Bay Area transit."
     image_url:
       type: string
       title: Image URL

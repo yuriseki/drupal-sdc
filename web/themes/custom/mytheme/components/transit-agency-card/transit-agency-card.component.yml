@@ -1,0 +1,69 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/11.x/core/modules/sdc/src/metadata.schema.json
+name: Transit Agency Card
+status: stable
+description: A card component displaying transit agency information with logo, tags, heading, description, and action buttons.
+props:
+  type: object
+  required:
+    - heading
+  properties:
+    logo_url:
+      type: string
+      title: Logo URL
+      description: URL or path to the agency logo image
+      default: /themes/custom/mytheme/assets/images/transit-agency-card/ac-transit-logo.png
+    logo_alt:
+      type: string
+      title: Logo Alt Text
+      description: Alternative text for the agency logo
+      default: AC Transit logo
+    heading:
+      type: string
+      title: Heading
+      description: Agency name or card heading
+      default: MVgo
+    description:
+      type: string
+      title: Description
+      description: Descriptive text about the transit agency
+      maxLength: 1000
+      default: MVgo is a service of the Mountain View Transportation Management Association (MTMA), a nonprofit membership organization funded by Mountain View businesses and property owners for the purpose of reducing traffic on Mountain View streets for the benefit of the community.
+    tags:
+      type: array
+      title: Tags
+      description: List of category or service type tags
+      items:
+        type: string
+      default:
+        - Construction
+        - Construction
+    primary_button_label:
+      type: string
+      title: Primary Button Label
+      description: Label for the primary action button
+      default: Learn More
+    primary_button_url:
+      type: string
+      title: Primary Button URL
+      description: URL for the primary action button
+      default: '#'
+    secondary_button_label:
+      type: string
+      title: Secondary Button Label
+      description: Label for the secondary action button
+      default: "Go to Agency's Website"
+    secondary_button_url:
+      type: string
+      title: Secondary Button URL
+      description: URL for the secondary action button
+      default: '#'
+    related_link_label:
+      type: string
+      title: Related Link Label
+      description: Label for the related external link
+      default: All Aboard Bay Area Transit
+    related_link_url:
+      type: string
+      title: Related Link URL
+      description: URL for the related external link
+      default: '#'

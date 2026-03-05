@@ -1,0 +1,47 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Resource Card
+status: experimental
+description: A horizontal card with image, heading, description, and CTA button linking to an external resource.
+props:
+  type: object
+  required:
+    - heading
+    - description
+    - button_label
+    - button_url
+  properties:
+    heading:
+      type: string
+      title: Heading
+      description: The card heading text.
+      default: "Google Group"
+    description:
+      type: string
+      title: Description
+      description: The card description text. Supports HTML for inline formatting.
+      default: "Visit the&nbsp;<strong>511SFBay Developer Resources</strong>&nbsp;group for help with 511 Open Data"
+    image_src:
+      type: string
+      title: Image Source
+      description: URL or path to the card image.
+      default: "/themes/custom/mytheme/assets/images/resource-card/default-image.png"
+    image_alt:
+      type: string
+      title: Image Alt Text
+      description: Alternative text for the image.
+      default: "Google Group resource"
+    button_label:
+      type: string
+      title: Button Label
+      description: Text displayed on the CTA button.
+      default: "Visit the Google Group"
+    button_url:
+      type: string
+      title: Button URL
+      description: URL the button links to.
+      default: "#"
+    button_external:
+      type: boolean
+      title: External Link
+      description: Whether the button link opens in a new tab.
+      default: true

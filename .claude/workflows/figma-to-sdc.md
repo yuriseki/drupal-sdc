@@ -134,6 +134,31 @@ props:
 - Better developer experience with fallback values
 - Compatibility with auto-discovery tools
 
+**MANDATORY: Check string length for every string prop**
+
+Drupal's `textfield` defaults to `#maxlength: 128`. String defaults longer than 128 chars cause a validation error. For every string prop, count the default value and add `maxLength` if needed:
+
+```yaml
+# Short text (≤128 chars) — no maxLength needed
+heading:
+  type: string
+  title: Heading
+  default: Agency Name
+
+# Long text (>128 chars) — maxLength REQUIRED
+description:
+  type: string
+  title: Description
+  maxLength: 1000   # ← REQUIRED when len(default) > 128
+  default: Full paragraph text from Figma that exceeds 128 characters...
+
+# Rules:
+# len(default) > 128 → add maxLength
+# Paragraphs / body text → maxLength: 1000
+# Summaries / subtitles → maxLength: 500
+# Titles / labels / URLs → no maxLength needed
+```
+
 ### Slots Schema
 \`\`\`yaml
 slots:
@@ -186,6 +211,7 @@ Create `{component-name}.js` with:
 - [ ] YAML validates against JSON Schema at `base-knowledge/metadata.schema.json`
 - [ ] Props follow naming conventions
 - [ ] **ALL props have default values (CRITICAL for UI Patterns compatibility)**
+- [ ] **Every string prop default is checked: if `len(default) > 128`, `maxLength` is set**
 - [ ] Slots are properly defined
 - [ ] Props and Slots have unique keys. The keys are not repeated across Props and Slots.
 - [ ] Twig template follows SDC patterns
@@ -225,6 +251,7 @@ Any special considerations or limitations
 - ✅ Props schema uses valid JSON Schema types
 - ✅ Required props are appropriate
 - ✅ **ALL props have default values (REQUIRED for UI Patterns)**
+- ✅ **Every string prop: count `len(default)` — if > 128, `maxLength` is set**
 - ✅ Enum values are specified where needed
 - ✅ Slots have clear purposes
 - ✅ Libraries section correctly formatted

@@ -1,0 +1,53 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/11.x/core/modules/sdc/src/metadata.schema.json
+name: News Carousel
+status: stable
+description: A carousel section displaying a row of news cards with previous/next navigation and dot indicators.
+props:
+  type: object
+  required:
+    - section_heading
+  properties:
+    section_heading:
+      type: string
+      title: Section Heading
+      description: The H2 heading displayed above the carousel.
+      default: News & Promotions
+    cards:
+      type: array
+      title: Cards
+      description: Array of news card items to display in the carousel.
+      default:
+        - heading: All Aboard Bay Area Transit
+          paragraph: "27 agencies. 1 mission: connecting you to the Bay Area you love. Wherever you're headed, get there on Bay Area transit."
+          image_url: /themes/custom/mytheme/assets/images/news-carousel/train.png
+          image_alt: Bay Area transit train
+          link_url: '#'
+        - heading: Take Transit to Watch Super Bowl LVIII
+          paragraph: "49er Super Bowl football is back! Heading to a watch party? Avoid traffic and stay safe by taking public transit."
+          image_url: /themes/custom/mytheme/assets/images/news-carousel/superbowl.png
+          image_alt: Fans heading to the Super Bowl by transit
+          link_url: '#'
+        - heading: Bike to Wherever Days 2024
+          paragraph: "The 30th Anniversary of Bike to Work Day is Thursday, May 16! To celebrate the occasion, sign up for the Bay Area Bike Challenge."
+          image_url: /themes/custom/mytheme/assets/images/news-carousel/bike.png
+          image_alt: Person riding a bike in the Bay Area
+          link_url: '#'
+      items:
+        type: object
+        properties:
+          heading:
+            type: string
+            title: Heading
+          paragraph:
+            type: string
+            title: Paragraph
+            maxLength: 1000
+          image_url:
+            type: string
+            title: Image URL
+          image_alt:
+            type: string
+            title: Image Alt Text
+          link_url:
+            type: string
+            title: Link URL

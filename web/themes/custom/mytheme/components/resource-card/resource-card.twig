@@ -1,0 +1,25 @@
+<article class="resource-card">
+  <div class="resource-card__image-wrapper">
+    {% if image_src %}
+      <img class="resource-card__image" src="{{ image_src }}" alt="{{ image_alt }}" loading="lazy" />
+    {% endif %}
+  </div>
+  <div class="resource-card__content">
+    <div class="resource-card__text">
+      <h3 class="resource-card__heading">{{ heading }}</h3>
+      <p class="resource-card__description">{{ description|raw }}</p>
+    </div>
+    <a
+      class="resource-card__button"
+      href="{{ button_url }}"
+      {% if button_external %}target="_blank" rel="noopener noreferrer"{% endif %}
+    >
+      <span class="resource-card__button-label">{{ button_label }}</span>
+      {% if button_external %}
+        <svg class="resource-card__button-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+        </svg>
+      {% endif %}
+    </a>
+  </div>
+</article>
